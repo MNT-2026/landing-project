@@ -1,0 +1,150 @@
+---
+import { Icon } from "astro-icon/components";
+import "../styles.css";
+
+const steps = [
+  { number: "01", title: "Vehículo", copy: "El smartphone registra la vía durante recorridos cotidianos.", icon: "ph:car-profile-thin" },
+  { number: "02", title: "Visión artificial", copy: "Detecta el deterioro, lo clasifica y estima su severidad.", icon: "ph:brain-thin" },
+  { number: "03", title: "Mapa priorizado", copy: "Entrega evidencia georreferenciada para decidir y actuar.", icon: "ph:map-trifold-thin" },
+];
+
+const mvpItems = [
+  { title: "Baches", copy: "Ubicación y detección de baches.", icon: "ph:road-horizon-thin" },
+  { title: "Grietas", copy: "Detección de deterioro evidente.", icon: "ph:git-branch-thin" },
+  { title: "GPS", copy: "Coordenadas geográficas precisas.", icon: "ph:crosshair-thin" },
+  { title: "Fecha", copy: "Fecha y hora de cada detección.", icon: "ph:calendar-blank-thin" },
+  { title: "Evidencia", copy: "Imagen verificable del hallazgo.", icon: "ph:image-square-thin" },
+  { title: "Severidad", copy: "Clasificación baja, media o alta.", icon: "ph:chart-bar-thin", accent: true },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#020f1b" />
+    <meta name="description" content="SIMAV convierte recorridos cotidianos en evidencia georreferenciada para priorizar el mantenimiento vial." />
+    <link rel="icon" type="image/png" href="/assets/simav-pothole-closeup.png" />
+    <title>SIMAV · Inteligencia vial</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" id="inicio">
+        <a class="brand" href="#inicio" aria-label="SIMAV, ir al inicio"><span class="brand-main">SIM<span>A</span>V</span><span class="brand-sub">inteligencia vial</span></a>
+        <button class="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false"><Icon name="ph:list" size={24} /></button>
+        <nav aria-label="Navegación principal">
+          <a href="#producto">Producto</a><a href="#mvp">MVP</a><a href="#piloto">Piloto</a>
+          <button class="nav-cta" type="button" data-open-pilot>Solicitar piloto <Icon name="ph:arrow-right" size={17} /></button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <img class="hero-image" src="/assets/simav-city-route-hero.png" alt="Vista aérea nocturna de una ciudad con una ruta vial destacada" />
+          <div class="grid-layer" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <p class="eyebrow">INTELIGENCIA PARA LA MALLA VIAL</p>
+            <h1 id="hero-title">Detectamos hoy<br />lo que la vía<br /><em>necesita mañana.</em></h1>
+            <span class="title-mark" aria-hidden="true"></span>
+            <p class="hero-lead">Un smartphone dentro del vehículo y visión artificial convierten rutas ordinarias en evidencia georreferenciada del estado real de la vía.</p>
+            <p class="prototype-note"><Icon name="ph:device-mobile" size={18} /> Prototipo · cámara de smartphone</p>
+            <div class="hero-actions">
+              <button class="button button-primary" type="button" data-open-pilot>Explorar el piloto <Icon name="ph:arrow-right" size={19} /></button>
+              <a class="button button-secondary" href="#producto">Cómo funciona <Icon name="ph:arrow-right" size={19} /></a>
+            </div>
+          </div>
+          <div class="map-pin pin-one" aria-hidden="true"><Icon name="ph:map-pin-fill" size={28} /></div>
+          <div class="map-pin pin-two warning" aria-hidden="true"><Icon name="ph:warning-fill" size={25} /></div>
+          <article class="detection-card" aria-label="Ejemplo de evidencia detectada">
+            <img src="/assets/simav-pothole-closeup.png" alt="Bache con agua registrado como evidencia" />
+            <div class="detection-data">
+              <div><span>GPS</span><strong>-12.097658<br />-77.036482</strong></div><div><span>TIPO</span><strong>BACHE</strong></div>
+              <div><span>FECHA</span><strong>20 AGO 2026<br />03:42 AM</strong></div><div><span>SEVERIDAD</span><strong class="severity">ALTA</strong></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="process section-grid" id="producto" aria-labelledby="process-title">
+          <div class="section-heading centered"><p class="eyebrow">DE LA RUTA AL PLAN DE ACCIÓN</p><h2 id="process-title">Tres pasos. Una sola fuente de verdad.</h2></div>
+          <div class="steps">
+            {steps.map((step, index) => (
+              <div class="step"><span class="step-number">{step.number}</span><Icon name={step.icon} size={64} aria-hidden="true" /><h3>{step.title}</h3><p>{step.copy}</p>{index < steps.length - 1 && <Icon class="step-arrow" name="ph:arrow-right-thin" size={36} aria-hidden="true" />}</div>
+            ))}
+          </div>
+        </section>
+
+        <section class="evidence" id="mvp" aria-labelledby="mvp-title">
+          <div class="evidence-photo">
+            <img src="/assets/simav-pothole-evidence.png" alt="Bache severo registrado durante un recorrido nocturno" />
+            <div class="evidence-label"><span>EVIDENCIA REAL</span><strong>LATINOAMÉRICA</strong><p>20 AGO 2026 · 03:42 AM</p></div>
+            <div class="camera-note"><Icon name="ph:device-mobile" size={30} /><span><strong>SIN CÁMARAS ESPECIALES</strong>Funciona con el smartphone que ya tienes.</span></div>
+          </div>
+          <div class="mvp-copy section-grid">
+            <p class="eyebrow">MVP · SALIDAS PRINCIPALES</p><h2 id="mvp-title">Seis salidas clave.<br />Decisiones mejores.</h2>
+            <p class="mvp-intro">El MVP entrega exactamente lo necesario para evaluar, priorizar y justificar intervenciones.</p>
+            <div class="mvp-list">
+              {mvpItems.map((item, index) => (
+                <div class="mvp-item"><span class="mvp-number">0{index + 1}</span><Icon class={item.accent ? "item-accent" : ""} name={item.icon} size={34} aria-hidden="true" /><div><h3>{item.title}</h3><p>{item.copy}</p></div></div>
+              ))}
+            </div>
+            <p class="scope-note"><Icon name="ph:warning" size={18} /> Los semáforos y la señalización quedan fuera del alcance inicial.</p>
+          </div>
+        </section>
+
+        <section class="pilot section-grid" id="piloto" aria-labelledby="pilot-section-title">
+          <div class="pilot-copy"><span class="pilot-icon"><Icon name="ph:calendar-blank-thin" size={40} /></span><div><p class="eyebrow dark">PRIMER RECORRIDO</p><h2 id="pilot-section-title">Probémoslo en tu ciudad.</h2><p>Pilotos rápidos, medibles y de bajo riesgo. Hagamos visible lo que hoy cuesta ver.</p></div></div>
+          <button class="button button-dark" type="button" data-open-pilot>Solicitar piloto <Icon name="ph:arrow-right" size={20} /></button>
+        </section>
+      </main>
+
+      <footer>
+        <a class="brand" href="#inicio" aria-label="SIMAV, ir al inicio"><span class="brand-main">SIM<span>A</span>V</span><span class="brand-sub">inteligencia vial</span></a>
+        <p>Inteligencia para mejores decisiones en infraestructura vial.</p>
+        <div class="footer-meta"><Icon name="ph:map-pin" size={16} /> Latinoamérica <span></span> <a href="mailto:hola@simav.ai">hola@simav.ai</a></div>
+        <p class="footer-date">20 de agosto de 2026</p>
+      </footer>
+    </div>
+
+    <div class="modal-backdrop" id="pilot-modal" role="presentation" hidden>
+      <section class="pilot-modal" role="dialog" aria-modal="true" aria-labelledby="pilot-title">
+        <button class="modal-close" type="button" aria-label="Cerrar"><Icon name="ph:x" size={22} /></button>
+        <div data-form-state>
+          <p class="eyebrow">PILOTO SIMAV</p><h2 id="pilot-title">Hagamos visible lo que hoy cuesta ver.</h2>
+          <p class="modal-intro">Cuéntanos dónde quieres evaluar la malla vial. Te contactaremos para definir una ruta corta, medible y de bajo riesgo.</p>
+          <form>
+            <label>Nombre<input name="name" autocomplete="name" required placeholder="Tu nombre" /></label>
+            <label>Correo de trabajo<input name="email" type="email" autocomplete="email" required placeholder="nombre@organizacion.com" /></label>
+            <label>Organización o ciudad<input name="organization" required placeholder="Entidad, empresa o municipio" /></label>
+            <button class="button button-primary modal-submit" type="submit">Solicitar conversación <Icon name="ph:paper-plane-tilt" size={18} /></button>
+          </form>
+          <p class="form-note">Sin compromisos. El MVP se valida primero con un recorrido controlado.</p>
+        </div>
+        <div class="success-state" data-success-state hidden aria-live="polite">
+          <Icon name="ph:check-circle-thin" size={58} /><p class="eyebrow">SOLICITUD RECIBIDA</p><h2>Hablemos de tu vía.</h2>
+          <p>Gracias. Revisaremos el contexto de tu organización para preparar una conversación útil sobre el piloto.</p>
+          <button class="button button-primary" type="button" data-close-pilot>Volver al sitio <Icon name="ph:arrow-right" size={18} /></button>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const modal = document.querySelector("#pilot-modal");
+      const menuButton = document.querySelector(".menu-toggle");
+      const navigation = document.querySelector("nav");
+      const form = modal?.querySelector("form");
+      const formState = modal?.querySelector("[data-form-state]");
+      const successState = modal?.querySelector("[data-success-state]");
+      const closeMenu = () => { navigation?.classList.remove("nav-open"); menuButton?.setAttribute("aria-expanded", "false"); };
+      const openModal = () => { if (!modal) return; closeMenu(); modal.hidden = false; document.body.classList.add("modal-open"); modal.querySelector(".modal-close")?.focus(); };
+      const closeModal = () => { if (!modal) return; modal.hidden = true; document.body.classList.remove("modal-open"); form?.reset(); if (formState) formState.hidden = false; if (successState) successState.hidden = true; };
+      menuButton?.addEventListener("click", () => { const open = !navigation?.classList.contains("nav-open"); navigation?.classList.toggle("nav-open", open); menuButton.setAttribute("aria-expanded", String(open)); });
+      document.querySelectorAll("nav a").forEach((link) => link.addEventListener("click", closeMenu));
+      document.querySelectorAll("[data-open-pilot]").forEach((button) => button.addEventListener("click", openModal));
+      document.querySelectorAll("[data-close-pilot], .modal-close").forEach((button) => button.addEventListener("click", closeModal));
+      modal?.addEventListener("mousedown", (event) => { if (event.target === modal) closeModal(); });
+      document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeModal(); });
+      form?.addEventListener("submit", (event) => { event.preventDefault(); if (formState) formState.hidden = true; if (successState) successState.hidden = false; });
+    </script>
+  </body>
+</html>

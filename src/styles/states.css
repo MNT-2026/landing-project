@@ -1,0 +1,108 @@
+/* Estados de interacción extraídos del diseño original.
+   Se aplican con !important porque los estilos base viajan inline en el markup. */
+.dsh-1:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-2:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-3:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-4:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-5:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-6:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-7:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-8:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-9:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-10:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+}
+
+.dsh-11:hover {
+  background: rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+}
+
+.dsh-12:hover {
+  background: #1D4FD8 !important;
+}
+
+.dsh-12:active {
+  transform: scale(0.98) !important;
+}
+
+.dsh-13:hover {
+  background: rgba(37,99,235,0.9) !important;
+  border-color: rgba(37,99,235,0.9) !important;
+}
+
+.dsh-14:hover {
+  background: rgba(255,255,255,0.035) !important;
+}
+
+.dsh-15:hover {
+  background: rgba(255,255,255,0.035) !important;
+}
+
+.dsh-16:hover {
+  background: rgba(255,255,255,0.035) !important;
+}
+
+.dsh-17:hover {
+  background: rgba(255,255,255,0.035) !important;
+}
+
+.dsh-18:hover {
+  background: rgba(255,255,255,0.035) !important;
+}
+
+.pri-19:hover {
+  transform: translateY(-6px) !important;
+  border-color: rgba(0,210,255,0.4) !important;
+  box-shadow: 0 34px 90px -44px rgba(0,210,255,0.55), inset 0 1px 0 rgba(255,255,255,0.12) !important;
+}
+
+.cta-20:hover {
+  background: rgba(255,255,255,0.9) !important;
+}
+
+.cta-20:active {
+  transform: scale(0.98) !important;
+}
+
+.cta-21:hover {
+  background: rgba(255,255,255,0.08) !important;
+  color: #fff !important;
+}

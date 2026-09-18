@@ -1,0 +1,68 @@
+/* ===== Base / reset ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0C0C0C;
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(61,129,227,0.3); }
+
+a { color: #8FC1FF; text-decoration: none; }
+a:hover { color: #00D2FF; }
+
+img, svg, video { max-width: 100%; }
+
+button { font: inherit; }
+
+/* ===== Keyframes ===== */
+@keyframes shiny { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes dropIn { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes wordIn { from { opacity: 0; transform: translateY(26px) rotateX(-40deg); filter: blur(6px); } to { opacity: 1; transform: translateY(0) rotateX(0); filter: blur(0); } }
+@keyframes shine { 0% { transform: translateX(-160%) skewX(-18deg); } 55%, 100% { transform: translateX(320%) skewX(-18deg); } }
+@keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(0,210,255,0); } 50% { box-shadow: 0 0 0 6px rgba(0,210,255,0.08); } }
+@keyframes converge { 0% { transform: scale(1); opacity: 1; } 55% { transform: scale(0.45); opacity: 1; } 100% { transform: scale(0.04); opacity: 0; } }
+@keyframes orbitCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes orbitCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+@keyframes ringPulse { 0%, 100% { opacity: 0.35; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.03); } }
+@keyframes popIn { from { opacity: 0; transform: translateY(22px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes scanSweep { 0% { transform: translateY(0); } 100% { transform: translateY(370%); } }
+
+/* ===== Responsive ===== */
+@media (max-width: 1080px) {
+  /* El panel de dashboard se compacta antes de apilarse */
+  .dash-kpis { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; }
+}
+
+@media (max-width: 900px) {
+  .dash-aside { display: none !important; }
+  .dash-map { min-height: 280px !important; max-height: 300px !important; }
+  .dash-side-panel { max-height: none !important; border-left: none !important; border-top: 1px solid rgba(255,255,255,0.07) !important; }
+  .dash-searchbox { display: none !important; }
+}
+
+@media (max-width: 720px) {
+  .dash-chrome-url { font-size: 10px !important; }
+  .dash-toolbar-user { display: none !important; }
+}
+
+@media (max-width: 520px) {
+  .dash-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}

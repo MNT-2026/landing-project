@@ -1,0 +1,206 @@
+---
+import { TEAM } from '../data/team';
+
+/* Órbita de memojis alrededor del isotipo: tras ~7s convergen al centro
+   y se revelan las tarjetas de perfil (con panel de detalle al hover). */
+---
+
+<section id="equipo" class="team" data-team>
+  <div class="team__head">
+    <div class="team__badge">
+      <span class="team__badgedot"></span>
+      Equipo fundador
+    </div>
+    <h2 class="team__title">Quiénes construyen SIMAV</h2>
+    <p class="team__lede">Tres perfiles complementarios: infraestructura, inteligencia artificial y producto.</p>
+  </div>
+
+  <div class="team__orbit" data-team-orbit>
+    <div class="team__ring" aria-hidden="true"></div>
+    <div class="team__glow" aria-hidden="true"></div>
+
+    <div class="team__mark">
+      <img src="/logo-simav-mark.png" alt="SIMAV" width="54" height="54" />
+    </div>
+
+    <div class="team__spin">
+      <div class="team__converge" data-team-converge>
+        {TEAM.map((m) => (
+          <div class="team__arm" style={{ transform: `rotate(${m.angle}deg) translate(var(--radius))` }}>
+            <div class="team__counter">
+              <div style={{ transform: `rotate(${-m.angle}deg)` }}>
+                <div class="team__avatar" style={{ animationDelay: m.delay }}>
+                  <img src={m.img} alt={m.name} width="100" height="100" />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="team__cards" data-team-cards>
+    {TEAM.map((m, i) => (
+      <div class="team__card" tabindex="0" data-team-card>
+        <article class="team__cardface" style={{ animationDelay: `${i * 0.14}s` }}>
+          <div class="team__cardavatar">
+            <img src={m.img} alt={m.name} width="84" height="84" />
+          </div>
+          <p class="team__role">{m.role}</p>
+          <h3 class="team__name">{m.name}</h3>
+        </article>
+
+        <div class="team__detail" aria-hidden="true">
+          <div class="team__detailarrow" aria-hidden="true"></div>
+          <p class="team__bio">{m.bio}</p>
+          <div class="team__tags">
+            {m.tags.map((t) => <span class="team__tag">{t}</span>)}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .team { position: relative; z-index: 3; max-width: 1152px; margin: 0 auto; padding: clamp(48px, 6vw, 96px) 24px; }
+  .team__head { text-align: center; margin-bottom: clamp(28px, 4vw, 44px); }
+  .team__badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
+    border: 1px solid rgba(0,210,255,0.28); background: rgba(0,210,255,0.07);
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #8FE3FF;
+  }
+  .team__badgedot { width: 6px; height: 6px; border-radius: 999px; background: #00D2FF; animation: pulseDot 1.8s ease-in-out infinite; }
+  .team__title { margin: 16px 0 0; font-size: clamp(26px, 3.6vw, 44px); font-weight: 700; letter-spacing: -0.03em; }
+  .team__lede { margin: 14px auto 0; max-width: 560px; font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.55); }
+
+  /* ===== Órbita ===== */
+  .team__orbit {
+    position: relative; width: min(420px, 90vw); aspect-ratio: 1; margin: 24px auto;
+    --radius: 160px;
+  }
+  .team[data-phase='cards'] .team__orbit { display: none; }
+  .team__ring { position: absolute; inset: 14%; border-radius: 999px; border: 1px dashed rgba(61,129,227,0.3); animation: ringPulse 5s ease-in-out infinite; }
+  .team__glow { position: absolute; inset: 8%; border-radius: 999px; background: radial-gradient(circle at 50% 50%, rgba(0,210,255,0.16) 0%, transparent 66%); }
+  .team__mark {
+    position: absolute; top: 50%; left: 50%; width: 112px; height: 112px;
+    margin-top: -56px; margin-left: -56px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 40px rgba(0,210,255,0.2);
+  }
+  .team__mark img { width: 54px; height: 54px; object-fit: contain; }
+
+  .team__spin { position: absolute; inset: 0; animation: orbitCW 26s linear infinite; }
+  .team__converge { position: absolute; inset: 0; }
+  .team[data-phase='converge'] .team__converge { animation: converge 1.4s cubic-bezier(0.5,0,0.75,0) forwards; }
+  .team__arm { position: absolute; top: 50%; left: 50%; width: 0; height: 0; }
+  .team__counter { animation: orbitCCW 26s linear infinite; }
+  .team__avatar {
+    width: 100px; height: 100px; margin-left: -50px; margin-top: -50px;
+    border-radius: 999px; overflow: hidden; border: 1px solid rgba(255,255,255,0.16);
+    background: linear-gradient(160deg, rgba(61,129,227,0.28), rgba(12,12,12,0.6));
+    box-shadow: 0 14px 34px rgba(0,0,0,0.45);
+    animation: floatY 3.6s ease-in-out infinite;
+  }
+  .team__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ===== Tarjetas ===== */
+  .team__cards {
+    position: relative; margin-top: clamp(32px, 4vw, 52px);
+    display: none; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;
+  }
+  .team[data-phase='cards'] .team__cards { display: grid; }
+
+  .team__card { position: relative; }
+  .team__cardface {
+    border-radius: 20px; border: 1px solid rgba(255,255,255,0.09); background: transparent;
+    padding: 24px; text-align: center; cursor: default;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.35s, box-shadow 0.35s, background 0.35s;
+    animation: popIn 0.7s cubic-bezier(0.22,1,0.36,1) backwards;
+  }
+  .team__card:hover .team__cardface,
+  .team__card:focus-visible .team__cardface {
+    transform: translateY(-8px) scale(1.025);
+    border-color: rgba(0,210,255,0.5);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.42), 0 0 0 1px rgba(0,210,255,0.16);
+    background: rgba(0,210,255,0.04);
+  }
+  .team__cardavatar {
+    width: 84px; height: 84px; margin: 0 auto 16px; border-radius: 999px; overflow: hidden;
+    border: 1px solid rgba(0,210,255,0.3);
+    background: linear-gradient(160deg, rgba(61,129,227,0.28), rgba(12,12,12,0.6));
+  }
+  .team__cardavatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .team__role {
+    margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #8FE3FF;
+  }
+  .team__name { margin: 10px 0 0; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
+
+  .team__detail {
+    position: absolute; left: 0; right: 0; top: calc(100% + 12px); z-index: 6;
+    border-radius: 20px; border: 1px solid rgba(0,210,255,0.28);
+    background: rgba(10,14,20,0.94); backdrop-filter: blur(14px);
+    box-shadow: 0 26px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+    padding: 20px; text-align: left; pointer-events: none;
+    opacity: 0; visibility: hidden; transform: translateY(-10px) scale(0.97);
+    transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22,1,0.36,1), visibility 0.32s;
+  }
+  .team__card:hover .team__detail,
+  .team__card:focus-visible .team__detail {
+    opacity: 1; visibility: visible; transform: translateY(0) scale(1);
+  }
+  .team__detailarrow {
+    position: absolute; top: -5px; left: 32px; width: 10px; height: 10px; transform: rotate(45deg);
+    background: rgba(10,14,20,0.94);
+    border-left: 1px solid rgba(0,210,255,0.28); border-top: 1px solid rgba(0,210,255,0.28);
+  }
+  .team__bio { margin: 0; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.78); }
+  .team__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .team__tag {
+    padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04); font-size: 11px; color: rgba(255,255,255,0.7);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 560px) {
+    .team__orbit { --radius: 112px; }
+    .team__avatar { width: 76px; height: 76px; margin-left: -38px; margin-top: -38px; }
+    .team__mark { width: 84px; height: 84px; margin-top: -42px; margin-left: -42px; }
+    .team__mark img { width: 40px; height: 40px; }
+  }
+  @media (max-width: 380px) {
+    .team__orbit { --radius: 96px; }
+  }
+</style>
+
+<script>
+  const section = document.querySelector<HTMLElement>('[data-team]');
+
+  if (section) {
+    section.dataset.phase = 'orbit';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduced) {
+      section.dataset.phase = 'cards';
+    } else if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((e) => e.isIntersecting)) return;
+          obs.disconnect();
+          setTimeout(() => {
+            section.dataset.phase = 'converge';
+            setTimeout(() => (section.dataset.phase = 'cards'), 1400);
+          }, 7200);
+        },
+        { threshold: 0.35 }
+      );
+      obs.observe(section);
+    } else {
+      section.dataset.phase = 'cards';
+    }
+  }
+</script>

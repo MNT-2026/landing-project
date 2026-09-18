@@ -1,0 +1,345 @@
+---
+/* Nav + hero. El video de fondo se reproduce en ping-pong (adelante / atrás)
+   y la retícula de escaneo sigue el cursor. */
+---
+
+<div class="hero" data-hero>
+  <div aria-hidden="true" class="hero__bg">
+    <video
+      data-hero-video
+      autoplay
+      muted
+      playsinline
+      loop
+      preload="auto"
+      src="/hero.mp4"
+      poster=""
+      class="hero__video"></video>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,8,12,0.9) 0%, rgba(6,8,12,0.82) 34%, rgba(6,8,12,0.6) 62%, rgba(6,8,12,0.9) 88%, #08090C 100%)"></div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(78% 52% at 50% 34%, rgba(6,8,12,0.82) 0%, rgba(6,8,12,0.5) 55%, transparent 82%)"></div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 0%, rgba(0,210,255,0.10) 0%, rgba(11,37,81,0.05) 45%, transparent 70%)"></div>
+
+    <div class="hero__spot"></div>
+    <div class="hero__reticle">
+      <span class="hero__corner hero__corner--tl"></span>
+      <span class="hero__corner hero__corner--tr"></span>
+      <span class="hero__corner hero__corner--bl"></span>
+      <span class="hero__corner hero__corner--br"></span>
+      <span class="hero__pulse"></span>
+      <span class="hero__crosshair"></span>
+      <span class="hero__scanlabel">ESCANEANDO</span>
+    </div>
+  </div>
+
+  <div class="hero__content">
+    <nav class="nav">
+      <a href="#producto" class="nav__brand">
+        <img src="/logo-simav.png" alt="SIMAV" width="157" height="63" class="nav__logo" />
+        <span class="nav__kicker">VIAL</span>
+      </a>
+
+      <div class="nav__links" data-nav-links>
+        <a href="#producto">Producto</a>
+        <a href="#como">Cómo funciona</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="nav__right">
+        <a
+          href="https://frontend-simav.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav__cta"
+        >
+          Iniciar sesión
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+        </a>
+        <button type="button" class="nav__burger" aria-label="Abrir menú" aria-expanded="false" data-nav-toggle>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <header class="hero__header">
+      <h1 class="hero__title">
+        <span class="hero__line">
+          <span class="hero__word" style="animation-delay: 0.05s">La</span>
+          <span class="hero__word" style="animation-delay: 0.14s">vía,</span>
+          <span class="hero__word" style="animation-delay: 0.23s">mapeada.</span>
+        </span>
+        <span class="hero__shine">en tiempo real.</span>
+      </h1>
+
+      <p class="hero__lede">
+        Convertimos los viajes que ya ocurren en tu ciudad en un inventario vial continuo y
+        georreferenciado: baches, grietas y hundimientos detectados y priorizados por severidad.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#contacto" class="btn btn--primary btn--shine">
+          Solicitar una demostración
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+        </a>
+        <a href="#como" class="btn btn--ghost">Ver cómo funciona</a>
+      </div>
+
+      <p class="hero__note">Disponible para alcaldías, secretarías de movilidad y operadores de flota.</p>
+    </header>
+  </div>
+</div>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    height: calc(100dvh - 44px);
+    min-height: 560px;
+    --mx: 50%;
+    --my: 42%;
+    --near: 0;
+  }
+  .hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 100%;
+    transform: scale(1.22) translateY(6%);
+    transform-origin: 50% 100%;
+    pointer-events: none;
+  }
+
+  .hero__spot {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--near);
+    transition: opacity 0.5s;
+    background: radial-gradient(320px 320px at var(--mx) var(--my), rgba(0,210,255,0.16) 0%, rgba(61,129,227,0.07) 45%, transparent 72%);
+  }
+
+  .hero__reticle {
+    position: absolute;
+    left: var(--mx);
+    top: var(--my);
+    width: 132px;
+    height: 132px;
+    margin-left: -66px;
+    margin-top: -66px;
+    pointer-events: none;
+    opacity: var(--near);
+    transform: scale(calc(0.82 + 0.18 * var(--near)));
+    transition: opacity 0.35s, transform 0.35s;
+  }
+  .hero__corner { position: absolute; width: 26px; height: 26px; }
+  .hero__corner--tl { left: 0; top: 0; border-left: 2px solid rgba(0,210,255,0.85); border-top: 2px solid rgba(0,210,255,0.85); }
+  .hero__corner--tr { right: 0; top: 0; border-right: 2px solid rgba(0,210,255,0.85); border-top: 2px solid rgba(0,210,255,0.85); }
+  .hero__corner--bl { left: 0; bottom: 0; border-left: 2px solid rgba(0,210,255,0.85); border-bottom: 2px solid rgba(0,210,255,0.85); }
+  .hero__corner--br { right: 0; bottom: 0; border-right: 2px solid rgba(0,210,255,0.85); border-bottom: 2px solid rgba(0,210,255,0.85); }
+  .hero__pulse {
+    position: absolute; left: 50%; top: 50%; width: 5px; height: 5px;
+    margin-left: -2.5px; margin-top: -2.5px; border-radius: 50%;
+    background: #00D2FF; box-shadow: 0 0 14px #00D2FF;
+    animation: pulseDot 1.6s ease-in-out infinite;
+  }
+  .hero__crosshair {
+    position: absolute; left: 12px; right: 12px; top: 50%; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0,210,255,0.5), transparent);
+  }
+  .hero__scanlabel {
+    position: absolute; left: calc(100% + 10px); top: 50%; transform: translateY(-50%);
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em;
+    color: rgba(0,210,255,0.85); white-space: nowrap;
+  }
+
+  .hero__content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+
+  /* ===== Nav ===== */
+  .nav {
+    max-width: 1152px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 16px 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    animation: dropIn 0.7s ease-out both;
+  }
+  .nav__brand { display: flex; align-items: center; gap: 10px; }
+  .nav__logo { height: 63px; width: 157px; display: block; }
+  .nav__kicker {
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.22em;
+    color: rgba(255,255,255,0.45); padding-left: 10px; border-left: 1px solid rgba(255,255,255,0.15);
+  }
+  .nav__links { display: flex; align-items: center; gap: 28px; font-size: 13.5px; }
+  .nav__links a { color: rgba(255,255,255,0.62); transition: color 0.2s; }
+  .nav__links a:hover { color: #fff; }
+  .nav__right { display: flex; align-items: center; gap: 12px; }
+  .nav__cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    border-radius: 999px; background: #fff; color: #000; font-weight: 500; font-size: 13.5px;
+    padding: 12px 20px; transition: all 0.2s;
+  }
+  .nav__cta:hover { background: rgba(255,255,255,0.9); color: #000; }
+  .nav__cta:active { transform: scale(0.98); }
+
+  .nav__burger {
+    display: none;
+    width: 42px; height: 42px; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.05);
+    cursor: pointer; padding: 0;
+    flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  }
+  .nav__burger span { display: block; width: 16px; height: 1.5px; background: #fff; }
+
+  /* ===== Header ===== */
+  .hero__header {
+    max-width: 980px; width: 100%; margin: 0 auto;
+    padding: clamp(16px, 3vw, 40px) 24px clamp(24px, 4vw, 56px);
+    text-align: center; flex-grow: 1; min-height: 0;
+    display: flex; flex-direction: column; justify-content: center;
+    animation: riseIn 0.9s ease-out both;
+  }
+  .hero__title {
+    margin: 0; font-size: clamp(36px, 7.5vw, 84px); line-height: 1.02;
+    letter-spacing: -0.035em; font-weight: 800; text-wrap: balance;
+  }
+  .hero__line { display: block; color: #fff; }
+  .hero__word { display: inline-block; animation: wordIn 0.85s cubic-bezier(0.2,0.8,0.2,1) both; }
+  .hero__shine {
+    display: block;
+    background-image: linear-gradient(to right, #0B2551 0%, #0B2551 20%, #3D81E3 45%, #00D2FF 60%, #3D81E3 75%, #0B2551 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: url(#c3-noise);
+    animation: shiny 6s linear infinite;
+  }
+  .hero__lede {
+    max-width: 640px; margin: 28px auto 0; font-size: clamp(14.5px, 1.6vw, 18px);
+    line-height: 1.6; color: rgba(255,255,255,0.66); text-wrap: pretty;
+  }
+  .hero__actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+  .hero__note { margin-top: 22px; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    border-radius: 999px; font-size: 14px; padding: 14px 22px;
+  }
+  .btn--primary {
+    position: relative; overflow: hidden; background: #fff; color: #000; font-weight: 500;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
+  }
+  .btn--primary:hover { color: #000; transform: translateY(-2px); box-shadow: 0 14px 40px -14px rgba(0,210,255,0.85); }
+  .btn--primary:active { transform: scale(0.98); }
+  .btn--shine::before {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 45%;
+    background: linear-gradient(90deg, transparent, rgba(0,210,255,0.35), transparent);
+    animation: shine 3.6s ease-in-out infinite;
+  }
+  .btn--ghost {
+    border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(6px); color: rgba(255,255,255,0.85); transition: all 0.25s;
+  }
+  .btn--ghost:hover {
+    background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(0,210,255,0.6);
+    transform: translateY(-2px); box-shadow: 0 14px 40px -18px rgba(0,210,255,0.7);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .nav { gap: 14px; }
+    .nav__logo { height: 48px; width: 120px; }
+    .nav__links {
+      position: absolute; top: 100%; left: 12px; right: 12px; z-index: 30;
+      flex-direction: column; align-items: flex-start; gap: 4px;
+      padding: 12px; border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12); background: rgba(8,11,16,0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 26px 60px rgba(0,0,0,0.6);
+      display: none;
+    }
+    .nav__links[data-open='true'] { display: flex; }
+    .nav__links a { width: 100%; padding: 11px 12px; border-radius: 12px; font-size: 15px; }
+    .nav__links a:hover { background: rgba(255,255,255,0.06); }
+    .nav { position: relative; }
+    .nav__burger { display: flex; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { height: auto; min-height: 0; padding-bottom: 8px; }
+    .hero__header { padding-top: 40px; padding-bottom: 56px; }
+    .hero__kicker { display: none; }
+    .nav__kicker { display: none; }
+    .nav__cta { padding: 11px 16px; font-size: 13px; }
+    .hero__scanlabel { display: none; }
+  }
+</style>
+
+<script>
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  const video = document.querySelector<HTMLVideoElement>('[data-hero-video]');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Retícula + halo siguiendo el cursor (solo en punteros finos)
+  if (hero && window.matchMedia('(hover: hover)').matches) {
+    hero.addEventListener('pointermove', (e) => {
+      const r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+      hero.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+      hero.style.setProperty('--near', '1');
+    });
+    hero.addEventListener('pointerleave', () => hero.style.setProperty('--near', '0'));
+  }
+
+  // Reproducción ping-pong del video de fondo
+  if (video) {
+    video.muted = true;
+    video.volume = 0;
+    if (reduced) {
+      video.pause();
+    } else {
+      video.loop = false;
+      let dir = 1;
+      let last = 0;
+      let raf = 0;
+      const step = (t: number) => {
+        raf = requestAnimationFrame(step);
+        if (dir === 1) return;
+        if (!last) { last = t; return; }
+        const dt = (t - last) / 1000;
+        last = t;
+        const nt = video.currentTime - dt;
+        if (nt <= 0.02) {
+          video.currentTime = 0;
+          dir = 1;
+          last = 0;
+          void video.play().catch(() => {});
+        } else {
+          video.currentTime = nt;
+        }
+      };
+      video.addEventListener('ended', () => { dir = -1; last = 0; video.pause(); });
+      raf = requestAnimationFrame(step);
+      void video.play().catch(() => {});
+      window.addEventListener('pagehide', () => cancelAnimationFrame(raf));
+    }
+  }
+
+  // Menú móvil
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const links = document.querySelector<HTMLElement>('[data-nav-links]');
+  toggle?.addEventListener('click', () => {
+    const open = links?.dataset.open === 'true';
+    if (links) links.dataset.open = String(!open);
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+  links?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      links.dataset.open = 'false';
+      toggle?.setAttribute('aria-expanded', 'false');
+    })
+  );
+</script>

@@ -1,0 +1,192 @@
+---
+import { FEATURES } from '../data/features';
+
+/* Carrusel de funcionalidades: círculos con icono en movimiento continuo.
+   Se repite el set 3 veces para que el bucle no tenga salto visual. */
+const REPS = 3;
+const items = Array.from({ length: REPS }, (_, r) =>
+  FEATURES.map((f, i) => ({ ...f, dup: r > 0, idx: i }))
+).flat();
+---
+
+<section id="funcionalidades" class="feats">
+  <div class="feats__head">
+    <div>
+      <div class="feats__kicker">
+        <span class="feats__kickerdot"></span>
+        <span>FUNCIONALIDADES</span>
+      </div>
+      <h2 class="feats__title">Todo lo que hace la plataforma.</h2>
+    </div>
+    <p class="feats__lede">Seis capacidades que operan en conjunto sobre cada kilómetro recorrido.</p>
+  </div>
+
+  <div class="feats__wrap" data-feats-wrap>
+    <div class="feats__rail" data-feats-rail>
+      {items.map((f) => (
+        <div class="feats__cell">
+          <button
+            type="button"
+            class="feats__circle"
+            style={`--rgb: ${f.rgb}; color: ${f.ink}`}
+            aria-label={f.label}
+            aria-hidden={f.dup ? 'true' : 'false'}
+            tabindex={f.dup ? -1 : 0}
+            data-feat={String(f.idx)}
+            data-title={f.label}
+            data-desc={f.desc}
+          >
+            <span class="feats__icon" style={{ animation: f.anim }}>
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={f.icon} />
+            </span>
+          </button>
+          <span class="feats__label">{f.label}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="feats__tip" aria-live="polite" data-feats-tip>
+      <div class="feats__tiparrow" aria-hidden="true" data-feats-arrow></div>
+      <h3 data-feats-tiptitle></h3>
+      <p data-feats-tipdesc></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feats { max-width: 1152px; margin: 0 auto; padding: clamp(40px, 5vw, 80px) 24px; }
+  .feats__head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap; margin-bottom: 28px;
+  }
+  .feats__kicker { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(255,255,255,0.55); }
+  .feats__kickerdot { width: 6px; height: 6px; border-radius: 50%; background: #00D2FF; }
+  .feats__title { margin: 0; font-size: clamp(24px, 3.2vw, 38px); font-weight: 700; letter-spacing: -0.03em; }
+  .feats__lede { margin: 0; max-width: 360px; font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.5); }
+
+  .feats__wrap { position: relative; }
+  .feats__rail {
+    display: flex; gap: 30px; overflow-x: auto; padding: 14px 0 10px;
+    scrollbar-width: none; -ms-overflow-style: none;
+  }
+  .feats__rail::-webkit-scrollbar { display: none; }
+
+  .feats__cell { flex: 0 0 170px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .feats__circle {
+    width: 84px; height: 84px; border-radius: 999px;
+    border: 1px solid rgba(var(--rgb), 0.3);
+    background: radial-gradient(circle at 50% 26%, rgba(var(--rgb), 0.16) 0%, rgba(255,255,255,0.03) 62%), rgba(10,14,20,0.6);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 14px 34px -24px rgba(var(--rgb), 0.9);
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s, border-color 0.4s;
+  }
+  .feats__circle:hover, .feats__circle[data-on='true'] {
+    transform: scale(1.08);
+    border-color: rgba(var(--rgb), 0.8);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 0 36px -6px rgba(var(--rgb), 0.5);
+  }
+  .feats__circle:focus-visible { outline: 2px solid rgba(var(--rgb), 0.8); outline-offset: 4px; }
+  .feats__icon { display: flex; }
+  .feats__label { font-size: 14.5px; font-weight: 600; line-height: 1.35; text-align: center; color: rgba(255,255,255,0.82); }
+
+  .feats__tip {
+    position: absolute; z-index: 8; width: 262px; padding: 16px 18px;
+    border-radius: 16px; border: 1px solid rgba(0,210,255,0.24);
+    background: rgba(10,14,20,0.92); backdrop-filter: blur(14px);
+    box-shadow: 0 24px 56px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07);
+    pointer-events: none; visibility: hidden; opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22,1,0.36,1), visibility 0.3s;
+  }
+  .feats__tip[data-open='true'] { visibility: visible; opacity: 1; transform: translateY(0) scale(1); }
+  .feats__tiparrow {
+    position: absolute; top: -5px; width: 9px; height: 9px; transform: rotate(45deg);
+    background: rgba(10,14,20,0.92);
+    border-left: 1px solid rgba(0,210,255,0.24); border-top: 1px solid rgba(0,210,255,0.24);
+  }
+  .feats__tip h3 { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: #fff; }
+  .feats__tip p { margin: 8px 0 0; font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,0.6); }
+
+  @media (max-width: 600px) {
+    .feats__cell { flex: 0 0 150px; }
+    .feats__tip { width: min(262px, calc(100vw - 60px)); }
+  }
+</style>
+
+<script>
+  const ITEM_W = 200; // 170px de celda + 30px de gap
+  const COUNT = 6;
+  const SPEED = 26; // px por segundo
+
+  const wrap = document.querySelector<HTMLElement>('[data-feats-wrap]');
+  const rail = document.querySelector<HTMLElement>('[data-feats-rail]');
+  const tip = document.querySelector<HTMLElement>('[data-feats-tip]');
+  const arrow = document.querySelector<HTMLElement>('[data-feats-arrow]');
+  const tipTitle = document.querySelector<HTMLElement>('[data-feats-tiptitle]');
+  const tipDesc = document.querySelector<HTMLElement>('[data-feats-tipdesc]');
+
+  if (wrap && rail && tip && arrow && tipTitle && tipDesc) {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let playing = !reduced;
+    let pos = 0;
+    let lastT = 0;
+    let resumeAt = 0;
+
+    const showTip = (btn: HTMLElement) => {
+      const wr = wrap.getBoundingClientRect();
+      const r = btn.getBoundingClientRect();
+      const cx = r.left - wr.left + r.width / 2;
+      const W = tip.offsetWidth || 262;
+      const left = Math.max(0, Math.min(cx - W / 2, wr.width - W));
+      tip.style.left = left + 'px';
+      tip.style.top = r.bottom - wr.top + 46 + 'px';
+      arrow.style.left = Math.max(14, Math.min(cx - left, W - 22)) + 'px';
+      tipTitle.textContent = btn.dataset.title ?? '';
+      tipDesc.textContent = btn.dataset.desc ?? '';
+      tip.dataset.open = 'true';
+      playing = false;
+      rail.querySelectorAll<HTMLElement>('.feats__circle').forEach((c) => {
+        c.dataset.on = c.dataset.feat === btn.dataset.feat ? 'true' : 'false';
+      });
+    };
+
+    const hideTip = () => {
+      tip.dataset.open = 'false';
+      rail.querySelectorAll<HTMLElement>('.feats__circle').forEach((c) => (c.dataset.on = 'false'));
+      resumeAt = Date.now() + 600;
+      playing = !reduced;
+    };
+
+    rail.querySelectorAll<HTMLElement>('.feats__circle').forEach((btn) => {
+      btn.addEventListener('pointerenter', () => showTip(btn));
+      btn.addEventListener('focus', () => showTip(btn));
+      btn.addEventListener('click', () => showTip(btn));
+      btn.addEventListener('blur', hideTip);
+    });
+    wrap.addEventListener('pointerleave', hideTip);
+    rail.addEventListener('pointerenter', () => { playing = false; });
+    rail.addEventListener('touchstart', () => { playing = false; resumeAt = Date.now() + 2500; }, { passive: true });
+    rail.addEventListener('scroll', () => {
+      if (!playing || resumeAt > Date.now()) pos = rail.scrollLeft;
+    });
+
+    const loop = (t: number) => {
+      requestAnimationFrame(loop);
+      const rep = COUNT * ITEM_W;
+      if (resumeAt < Date.now() && rail.scrollLeft >= rep) {
+        rail.scrollLeft -= rep;
+        pos = rail.scrollLeft;
+      }
+      if (!playing || resumeAt > Date.now()) {
+        lastT = t;
+        pos = rail.scrollLeft;
+        return;
+      }
+      const dt = Math.min(50, t - (lastT || t));
+      lastT = t;
+      pos += (SPEED * dt) / 1000;
+      rail.scrollLeft = pos;
+    };
+    if (!reduced) requestAnimationFrame(loop);
+  }
+</script>

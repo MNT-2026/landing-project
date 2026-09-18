@@ -1,0 +1,257 @@
+---
+import { roadMarkers } from '../data/markers';
+const markers = roadMarkers();
+---
+<section id="producto" style="max-width: 1200px; margin: 0 auto; padding: clamp(48px,6vw,96px) 24px">
+      <div style="text-align: center; margin-bottom: 36px">
+        <div style="display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #00D2FF"></span>
+          <span style="font-family: 'IBM Plex Mono',monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(255,255,255,0.55)">EL PRODUCTO</span>
+        </div>
+        <h2 style="margin: 0; font-size: clamp(26px,3.4vw,42px); font-weight: 700; letter-spacing: -0.03em">Un tablero operativo, no un informe.</h2>
+      </div>
+
+      <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #0A0E16; backdrop-filter: blur(24px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 50px 130px -50px rgba(0,0,0,0.95); animation: riseIn 0.9s ease-out both">
+        <div style="height: 38px; display: flex; align-items: center; padding: 0 14px; border-bottom: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.02)">
+          <div style="display: flex; gap: 7px">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #FF5F57"></span>
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #FEBC2E"></span>
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #28C840"></span>
+          </div>
+          <span class="dash-chrome-url" style="margin: 0 auto; font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: rgba(255,255,255,0.4)">app.simavvial.co/dashboard</span>
+          <span style="width: 44px"></span>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: stretch">
+
+          <aside class="dash-aside" style="flex-basis: 232px; flex-grow: 1; min-width: 200px; border-right: 1px solid rgba(255,255,255,0.07); background: #080B12; display: flex; flex-direction: column">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 16px 14px; border-bottom: 1px solid rgba(255,255,255,0.06)">
+              <img src="/logo-simav-mark.png" alt="" style="height: 26px; width: auto; display: block">
+              <span style="line-height: 1.15"><span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 0.06em">SIMAV VIAL</span><span style="display: block; font-family: 'IBM Plex Mono',monospace; font-size: 8px; letter-spacing: 0.18em; color: rgba(255,255,255,0.4)">ROAD INTELLIGENCE</span></span>
+            </div>
+            <div style="padding: 10px 10px; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'IBM Plex Mono',monospace; font-size: 9px; letter-spacing: 0.18em; color: rgba(255,255,255,0.3); padding: 4px 11px">OPERACIÓN</span>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; background: #2563EB; color: #fff; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.95; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Dashboard</span>
+                
+              </div>
+              <div class="dsh-1" style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; color: rgba(255,255,255,0.58); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.55; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Mapa</span>
+                
+              </div>
+              <div class="dsh-2" style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; color: rgba(255,255,255,0.58); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.55; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Incidentes</span>
+                <span style="font-family: 'IBM Plex Mono',monospace; font-size: 10.5px; color: rgba(255,255,255,0.4)">46</span>
+              </div>
+              <div class="dsh-3" style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; color: rgba(255,255,255,0.58); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.55; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Cámaras</span>
+                <span style="font-family: 'IBM Plex Mono',monospace; font-size: 10.5px; color: rgba(255,255,255,0.4)">8/10</span>
+              </div>
+              <div class="dsh-4" style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; color: rgba(255,255,255,0.58); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.55; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Vehículos</span>
+                
+              </div>
+              <span style="font-family: 'IBM Plex Mono',monospace; font-size: 9px; letter-spacing: 0.18em; color: rgba(255,255,255,0.3); padding: 10px 11px 4px">ANÁLISIS</span>
+              <div class="dsh-5" style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; color: rgba(255,255,255,0.58); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.55; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Estadísticas</span>
+                
+              </div>
+              <div class="dsh-6" style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; color: rgba(255,255,255,0.58); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.55; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Reportes</span>
+                
+              </div>
+              <div class="dsh-7" style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; color: rgba(255,255,255,0.58); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.55; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Datos</span>
+                
+              </div>
+              <span style="font-family: 'IBM Plex Mono',monospace; font-size: 9px; letter-spacing: 0.18em; color: rgba(255,255,255,0.3); padding: 10px 11px 4px">SISTEMA</span>
+              <div class="dsh-8" style="display: flex; align-items: center; gap: 10px; padding: 6px 11px; border-radius: 8px; color: rgba(255,255,255,0.58); font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.15s">
+                <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid currentColor; opacity: 0.55; flex-shrink: 0"></span>
+                <span style="flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Configuración</span>
+                
+              </div>
+            </div>
+            <div style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.06); padding: 12px 14px">
+              <div style="display: flex; align-items: center; gap: 10px">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: #2563EB; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700">SM</span>
+                <span style="line-height: 1.2"><span style="display: block; font-size: 12px; font-weight: 600">Sofía Marín</span><span style="display: block; font-size: 10px; color: rgba(255,255,255,0.42)">Rol: Administrador</span></span>
+              </div>
+              <span style="display: block; font-family: 'IBM Plex Mono',monospace; font-size: 9px; letter-spacing: 0.18em; color: rgba(255,255,255,0.3); margin: 14px 0 7px">TEMA</span>
+              <div style="display: flex; gap: 4px">
+                <span class="dsh-9" style="flex-grow: 1; text-align: center; font-size: 10.5px; padding: 6px 4px; border-radius: 7px; color: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.15s">Light</span>
+                <span class="dsh-10" style="flex-grow: 1; text-align: center; font-size: 10.5px; padding: 6px 4px; border-radius: 7px; color: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.15s">Dark</span>
+                <span style="flex-grow: 1; text-align: center; font-size: 10.5px; padding: 6px 4px; border-radius: 7px; background: #2563EB; color: #fff; font-weight: 600">Night</span>
+              </div>
+            </div>
+          </aside>
+
+          <div style="flex-basis: 640px; flex-grow: 999; min-width: 320px; display: flex; flex-direction: column">
+            <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.07)">
+              <span style="width: 26px; height: 22px; border-radius: 5px; border: 1.4px solid rgba(255,255,255,0.2)"></span>
+              <span style="line-height: 1.2">
+                <span style="display: block; font-size: 10.5px; color: rgba(255,255,255,0.4)">Inicio &nbsp;›&nbsp; Dashboard</span>
+                <span style="display: block; font-size: 16px; font-weight: 700; letter-spacing: -0.015em">Dashboard operativo</span>
+              </span>
+              <div style="margin-left: auto; display: flex; align-items: center; gap: 9px; flex-wrap: wrap">
+                <span class="dash-searchbox" style="display: flex; align-items: center; gap: 8px; padding: 7px 11px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.03); font-size: 11.5px; color: rgba(255,255,255,0.4)">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5L21 21"></path></svg>
+                  Buscar incidente, cámara, ruta…
+                  <span style="font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; padding: 1px 5px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.12)">⌘K</span>
+                </span>
+                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 600; padding: 5px 10px; border-radius: 999px; background: rgba(248,113,113,0.15); border: 1px solid rgba(248,113,113,0.35); color: #FCA5A5"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Sin conexión</span>
+                <span style="width: 28px; height: 28px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.09); display: flex; align-items: center; justify-content: center; position: relative"><span style="width: 9px; height: 9px; border-radius: 3px 3px 0 0; border: 1.3px solid rgba(255,255,255,0.5)"></span><span style="position: absolute; top: 5px; right: 5px; width: 5px; height: 5px; border-radius: 50%; background: #F87171"></span></span>
+                <span class="dash-toolbar-user" style="display: flex; align-items: center; gap: 8px; padding-left: 4px"><span style="width: 28px; height: 28px; border-radius: 50%; background: #2563EB; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700">SM</span><span style="line-height: 1.2"><span style="display: block; font-size: 11.5px; font-weight: 600">Sofía Marín</span><span style="display: block; font-size: 9.5px; color: rgba(255,255,255,0.42)">Administrador</span></span></span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 16px">
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; color: rgba(255,255,255,0.5)"><span style="width: 6px; height: 6px; border-radius: 50%; background: #2DD4A7; animation: pulseDot 2s ease-in-out infinite"></span>Datos en vivo desde la API</span>
+              <div style="margin-left: auto; display: flex; gap: 9px">
+                <button class="dsh-11" type="button" style="display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; font-weight: 500; padding: 8px 13px; border-radius: 9px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.8); cursor: pointer; transition: all 0.18s">Actualizar</button>
+                <button class="dsh-12" type="button" style="display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; font-weight: 600; padding: 8px 13px; border-radius: 9px; border: 1px solid rgba(37,99,235,0.6); background: #2563EB; color: #fff; cursor: pointer; transition: all 0.18s">Exportar Excel</button>
+              </div>
+            </div>
+
+            <div class="dash-kpis" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(126px,1fr)); gap: 8px; padding: 0 16px 12px">
+            <div style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.025); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <span style="display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="width: 11px; height: 11px; border-radius: 3px; border: 1.3px solid currentColor; flex-shrink: 0"></span>Incidentes totales</span>
+              <span style="display: flex; align-items: baseline; gap: 5px; font-family: 'IBM Plex Mono',monospace; font-size: 22px; font-weight: 500; line-height: 1; color: #fff">147</span>
+              <span style="font-size: 10.5px; color: rgba(255,255,255,0.38)">&nbsp;</span>
+              <svg viewBox="0 0 100 22" preserveAspectRatio="none" style="width: 100%; height: 22px; margin-top: auto"><polyline points="0,18 14,16 28,17 42,12 56,13 70,8 85,6 100,3" fill="none" stroke="#3D81E3" stroke-width="1.6" vector-effect="non-scaling-stroke"></polyline></svg>
+            </div>
+            <div style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.025); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <span style="display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="width: 11px; height: 11px; border-radius: 3px; border: 1.3px solid currentColor; flex-shrink: 0"></span>Baches</span>
+              <span style="display: flex; align-items: baseline; gap: 5px; font-family: 'IBM Plex Mono',monospace; font-size: 22px; font-weight: 500; line-height: 1; color: #fff">82</span>
+              <span style="font-size: 10.5px; color: rgba(255,255,255,0.38)">56% del total</span>
+              <div style="display: flex; align-items: flex-end; gap: 3px; height: 22px; margin-top: auto"><span style="flex-grow: 1; height: 30%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 22%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 42%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 34%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 52%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 44%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 62%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 56%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 74%; border-radius: 2px 2px 0 0; background: #3D81E3"></span><span style="flex-grow: 1; height: 88%; border-radius: 2px 2px 0 0; background: #3D81E3"></span></div>
+            </div>
+            <div style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.025); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <span style="display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="width: 11px; height: 11px; border-radius: 3px; border: 1.3px solid currentColor; flex-shrink: 0"></span>Grietas</span>
+              <span style="display: flex; align-items: baseline; gap: 5px; font-family: 'IBM Plex Mono',monospace; font-size: 22px; font-weight: 500; line-height: 1; color: #fff">65</span>
+              <span style="font-size: 10.5px; color: rgba(255,255,255,0.38)">44% del total</span>
+              <div style="display: flex; align-items: flex-end; gap: 3px; height: 22px; margin-top: auto"><span style="flex-grow: 1; height: 60%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 52%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 66%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 58%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 70%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 50%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 62%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 46%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 54%; border-radius: 2px 2px 0 0; background: #8FA83A"></span><span style="flex-grow: 1; height: 40%; border-radius: 2px 2px 0 0; background: #8FA83A"></span></div>
+            </div>
+            <div style="border-radius: 12px; border: 1px solid rgba(248,113,113,0.4); background: rgba(255,255,255,0.025); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <span style="display: flex; align-items: center; gap: 7px; font-size: 11px; color: #FCA5A5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="width: 11px; height: 11px; border-radius: 3px; border: 1.3px solid currentColor; flex-shrink: 0"></span>Críticos · requieren acción</span>
+              <span style="display: flex; align-items: baseline; gap: 5px; font-family: 'IBM Plex Mono',monospace; font-size: 22px; font-weight: 500; line-height: 1; color: #F87171">23</span>
+              <span style="font-size: 10.5px; color: rgba(255,255,255,0.38)">16% del total</span>
+              <svg viewBox="0 0 100 22" preserveAspectRatio="none" style="width: 100%; height: 22px; margin-top: auto"><polyline points="0,18 14,16 28,17 42,12 56,13 70,8 85,6 100,3" fill="none" stroke="#F87171" stroke-width="1.6" vector-effect="non-scaling-stroke"></polyline></svg>
+            </div>
+            <div style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.025); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <span style="display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="width: 11px; height: 11px; border-radius: 3px; border: 1.3px solid currentColor; flex-shrink: 0"></span>Kilómetros analizados</span>
+              <span style="display: flex; align-items: baseline; gap: 5px; font-family: 'IBM Plex Mono',monospace; font-size: 22px; font-weight: 500; line-height: 1; color: #fff">35.7<span style="font-size: 12px; color: rgba(255,255,255,0.45)">km</span></span>
+              <span style="font-size: 10.5px; color: rgba(255,255,255,0.38)">dato de demostración</span>
+              <svg viewBox="0 0 100 22" preserveAspectRatio="none" style="width: 100%; height: 22px; margin-top: auto"><polyline points="0,18 14,16 28,17 42,12 56,13 70,8 85,6 100,3" fill="none" stroke="#3D81E3" stroke-width="1.6" vector-effect="non-scaling-stroke"></polyline></svg>
+            </div>
+            <div style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.025); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <span style="display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="width: 11px; height: 11px; border-radius: 3px; border: 1.3px solid currentColor; flex-shrink: 0"></span>Cámaras activas</span>
+              <span style="display: flex; align-items: baseline; gap: 5px; font-family: 'IBM Plex Mono',monospace; font-size: 22px; font-weight: 500; line-height: 1; color: #fff">8<span style="font-size: 12px; color: rgba(255,255,255,0.45)">/ 10</span></span>
+              <span style="font-size: 10.5px; color: rgba(255,255,255,0.38)">dato de demostración</span>
+              <svg viewBox="0 0 100 22" preserveAspectRatio="none" style="width: 100%; height: 22px; margin-top: auto"><polyline points="0,18 14,16 28,17 42,12 56,13 70,8 85,6 100,3" fill="none" stroke="#3D81E3" stroke-width="1.6" vector-effect="non-scaling-stroke"></polyline></svg>
+            </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; align-items: stretch; border-top: 1px solid rgba(255,255,255,0.07)">
+
+              <div class="dash-map" style="flex-basis: 420px; flex-grow: 3; min-width: 280px; position: relative; min-height: 340px; max-height: 360px; overflow: hidden; background: linear-gradient(180deg,#0A1018 0%,#080D14 100%); background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 100% 96px, 152px 100%">
+                <div style="position: absolute; inset: 0; background: radial-gradient(60% 60% at 30% 80%, rgba(45,212,167,0.05) 0%, transparent 70%)"><div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 11.5px">
+                <span style="font-family: 'IBM Plex Mono',monospace; font-weight: 600; color: #fff">BUS-088</span>
+                <span style="color: rgba(255,255,255,0.5); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Ruta Sur</span>
+                <span style="margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #F5A524; white-space: nowrap"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Señal débil</span>
+              </div></div>
+                <div style="position: absolute; left: 8%; top: 6%; width: 26%; height: 22%; background: rgba(45,212,167,0.05); border: 1px solid rgba(45,212,167,0.09)"></div>
+                <div style="position: absolute; right: 10%; bottom: 14%; width: 24%; height: 20%; background: rgba(45,212,167,0.05); border: 1px solid rgba(45,212,167,0.09)"></div>
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; left: 4px; top: -30px"><polyline points="4,99 12,84 22,66 34,50 46,44 58,38 72,28 86,14 100,4" fill="none" stroke="#3D81E3" stroke-width="2" stroke-dasharray="6 5" vector-effect="non-scaling-stroke"></polyline></svg>
+            <span style="position: absolute; left: 13%; top: 8%; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 0.16em; color: rgba(255,255,255,0.28)">PARQUE NORTE</span>
+            <span style="position: absolute; left: 40%; top: 45%; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 0.16em; color: rgba(255,255,255,0.28)">AV. TRONCAL</span>
+            <span style="position: absolute; left: 62%; top: 76%; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 0.16em; color: rgba(255,255,255,0.28)">ZONA INDUSTRIAL</span>
+            <span style="position: absolute; left: 5%; top: 93%; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 0.16em; color: rgba(255,255,255,0.28)">RÍO ORIENTE</span>
+                {markers.map((mk) => (
+                  <div style={mk.style}><span style={mk.dotStyle}></span></div>
+                ))}
+                <button class="dsh-13" type="button" style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; font-weight: 500; padding: 8px 12px; border-radius: 9px; border: 1px solid rgba(255,255,255,0.14); background: rgba(10,14,22,0.85); backdrop-filter: blur(8px); color: #fff; cursor: pointer; transition: all 0.18s">Abrir mapa completo</button>
+                <div style="position: absolute; left: 14px; bottom: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(10,14,22,0.88); backdrop-filter: blur(8px); padding: 11px 13px; display: flex; flex-direction: column; gap: 7px">
+                  <span style="font-family: 'IBM Plex Mono',monospace; font-size: 9px; letter-spacing: 0.16em; color: rgba(255,255,255,0.4)">SEVERIDAD</span>
+                  <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.75)"><span style="width: 7px; height: 7px; border-radius: 50%; background: #F87171"></span>Alta · 23</span>
+                  <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.75)"><span style="width: 7px; height: 7px; border-radius: 50%; background: #F5A524"></span>Media · 59</span>
+                  <span style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.75)"><span style="width: 7px; height: 7px; border-radius: 50%; background: #2DD4A7"></span>Baja · 65</span>
+                </div>
+              </div>
+
+              <div class="dash-side-panel" style="flex-basis: 300px; flex-grow: 1; min-width: 270px; max-height: 360px; overflow: hidden; border-left: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 14px; border-bottom: 1px solid rgba(255,255,255,0.06)">
+                  <span style="font-size: 13px; font-weight: 600">Incidentes recientes</span>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 999px; background: rgba(248,113,113,0.15); border: 1px solid rgba(248,113,113,0.3); color: #FCA5A5"><span style="width: 4px; height: 4px; border-radius: 50%; background: currentColor"></span>23 críticos</span>
+                </div>
+              <div class="dsh-14" style="display: flex; gap: 10px; align-items: center; padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: background 0.15s">
+                <div style="width: 36px; height: 30px; flex-shrink: 0; border-radius: 6px; background-image: url('/imagen3.png'); background-size: 320% auto; background-position: 0% 78%; border: 1px solid rgba(255,255,255,0.12)"></div>
+                <div style="min-width: 0; flex-grow: 1">
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="font-family: 'IBM Plex Mono',monospace; font-size: 10.5px; color: rgba(255,255,255,0.4)">00001000</span><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 9.5px; font-weight: 600; padding: 2px 7px; border-radius: 5px; background: rgba(248,113,113,0.15); color: #FCA5A5"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Alta</span></div>
+                  <div style="font-size: 12.5px; font-weight: 600; color: #fff; margin-top: 2px">Bache</div>
+                  <div style="font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px">02/09 03:14 · IA 94%</div>
+                </div>
+              </div>
+              <div class="dsh-15" style="display: flex; gap: 10px; align-items: center; padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: background 0.15s">
+                <div style="width: 36px; height: 30px; flex-shrink: 0; border-radius: 6px; background-image: url('/imagen3.png'); background-size: 320% auto; background-position: 11% 78%; border: 1px solid rgba(255,255,255,0.12)"></div>
+                <div style="min-width: 0; flex-grow: 1">
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="font-family: 'IBM Plex Mono',monospace; font-size: 10.5px; color: rgba(255,255,255,0.4)">00001001</span><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 9.5px; font-weight: 600; padding: 2px 7px; border-radius: 5px; background: rgba(248,113,113,0.15); color: #FCA5A5"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Alta</span></div>
+                  <div style="font-size: 12.5px; font-weight: 600; color: #fff; margin-top: 2px">Grieta</div>
+                  <div style="font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px">02/09 03:06 · IA 91%</div>
+                </div>
+              </div>
+              <div class="dsh-16" style="display: flex; gap: 10px; align-items: center; padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: background 0.15s">
+                <div style="width: 36px; height: 30px; flex-shrink: 0; border-radius: 6px; background-image: url('/imagen3.png'); background-size: 320% auto; background-position: 22% 78%; border: 1px solid rgba(255,255,255,0.12)"></div>
+                <div style="min-width: 0; flex-grow: 1">
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="font-family: 'IBM Plex Mono',monospace; font-size: 10.5px; color: rgba(255,255,255,0.4)">00001002</span><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 9.5px; font-weight: 600; padding: 2px 7px; border-radius: 5px; background: rgba(245,165,36,0.15); color: #FBCB7A"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Media</span></div>
+                  <div style="font-size: 12.5px; font-weight: 600; color: #fff; margin-top: 2px">Bache</div>
+                  <div style="font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px">02/09 02:52 · IA 88%</div>
+                </div>
+              </div>
+              <div class="dsh-17" style="display: flex; gap: 10px; align-items: center; padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: background 0.15s">
+                <div style="width: 36px; height: 30px; flex-shrink: 0; border-radius: 6px; background-image: url('/imagen3.png'); background-size: 320% auto; background-position: 33% 78%; border: 1px solid rgba(255,255,255,0.12)"></div>
+                <div style="min-width: 0; flex-grow: 1">
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="font-family: 'IBM Plex Mono',monospace; font-size: 10.5px; color: rgba(255,255,255,0.4)">00001003</span><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 9.5px; font-weight: 600; padding: 2px 7px; border-radius: 5px; background: rgba(245,165,36,0.15); color: #FBCB7A"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Media</span></div>
+                  <div style="font-size: 12.5px; font-weight: 600; color: #fff; margin-top: 2px">Grieta</div>
+                  <div style="font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px">02/09 02:33 · IA 86%</div>
+                </div>
+              </div>
+              <div class="dsh-18" style="display: flex; gap: 10px; align-items: center; padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: background 0.15s">
+                <div style="width: 36px; height: 30px; flex-shrink: 0; border-radius: 6px; background-image: url('/imagen3.png'); background-size: 320% auto; background-position: 44% 78%; border: 1px solid rgba(255,255,255,0.12)"></div>
+                <div style="min-width: 0; flex-grow: 1">
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="font-family: 'IBM Plex Mono',monospace; font-size: 10.5px; color: rgba(255,255,255,0.4)">00001004</span><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 9.5px; font-weight: 600; padding: 2px 7px; border-radius: 5px; background: rgba(45,212,167,0.14); color: #7FE7C8"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Baja</span></div>
+                  <div style="font-size: 12.5px; font-weight: 600; color: #fff; margin-top: 2px">Bache</div>
+                  <div style="font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px">02/09 02:10 · IA 79%</div>
+                </div>
+              </div>
+                <a href="#producto" style="display: block; padding: 13px 14px; font-size: 12px; font-weight: 600; color: #8FC1FF">Ver los 147 incidentes →</a>
+                <div style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.07)">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 14px">
+                    <span style="font-size: 13px; font-weight: 600">Flota en ruta</span>
+                    <span style="font-size: 10px; color: rgba(255,255,255,0.35)">datos de demostración</span>
+                  </div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 11.5px">
+                <span style="font-family: 'IBM Plex Mono',monospace; font-weight: 600; color: #fff">BUS-117</span>
+                <span style="color: rgba(255,255,255,0.5); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Troncal Norte-Centro</span>
+                <span style="margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #2DD4A7; white-space: nowrap"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Transmitiendo</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 11.5px">
+                <span style="font-family: 'IBM Plex Mono',monospace; font-weight: 600; color: #fff">BUS-204</span>
+                <span style="color: rgba(255,255,255,0.5); overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Circular Centro</span>
+                <span style="margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #2DD4A7; white-space: nowrap"><span style="width: 5px; height: 5px; border-radius: 50%; background: currentColor"></span>Transmitiendo</span>
+              </div>
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

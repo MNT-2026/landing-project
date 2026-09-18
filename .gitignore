@@ -1,4 +1,4 @@
 node_modules/
 dist/
 .astro/
-qa/edge-*/
+.DS_Store
